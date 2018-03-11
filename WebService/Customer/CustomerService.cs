@@ -12,7 +12,7 @@ namespace Service.Customer
     public class CustomerService : ICustomerService
     {
 
-        private readonly DesafioContext _desafioContext ;
+        private readonly DesafioContext _desafioContext;
 
         /// <summary>
         /// Initializes a new instance of the Customer Service
@@ -32,11 +32,9 @@ namespace Service.Customer
             var testCustomer = GetByEmail(customer.Email);
             if (testCustomer != null)
             {
-                 testCustomer.Name = customer.Name;
-                testCustomer.Email = customer.Email;
-                customer = testCustomer;
-            }
+                customer.Id = testCustomer.Id;
 
+            }
             _desafioContext.Customers.Update(customer);
             _desafioContext.SaveChanges();
         }
@@ -61,16 +59,16 @@ namespace Service.Customer
         }
 
         /// <summary>
-        /// Get the Cutomer from database by id
+        /// Get the No Tracking Cutomer from database by Email
         /// </summary>
         /// <param name="id">Customer id</param>
-        /// <returns>Object of Domain.Models.Customer</returns>        
+        /// <returns>No Tracking Object of Domain.Models.Customer</returns>        
         public Domain.Models.Customer GetByEmail(string email)
         {
-            return _desafioContext.Customers.FirstOrDefault(c => c.Email.Equals(email));
+            return _desafioContext.Customers.AsNoTracking().FirstOrDefault(c => c.Email.Equals(email));
         }
-        
-       
+
+
 
 
     }

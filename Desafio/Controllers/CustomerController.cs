@@ -40,8 +40,8 @@ namespace Desafio.Controllers
             var customer = _customerService.GetById(id);
 
             if (customer == null)
-            {
-                return NotFound(id);
+            {                
+                return NotFound($"Id {id} Not Found");
             }
 
             return Ok(_customerService.GetById(id));
