@@ -24,11 +24,11 @@ namespace Desafio.Controllers
         }
 
         [HttpGet()]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var _return = _customerService.GetAll();
             if (_return.Count<=0 ){
-                _customerService.Save(new Customer { Name = "Gesualdo", Email="wwww" });
+                _customerService.Save(new Customer { Name = "Gesualdo", Email="gesualdo.crocco@gmail.com" });
                 return Ok( "Desafio Dell");
             }
             return Ok(_return);
@@ -61,8 +61,8 @@ namespace Desafio.Controllers
 
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromForm]Customer customer)
+        [HttpPut()]
+        public IActionResult Put( [FromForm]Customer customer)
         {
             try
             {
