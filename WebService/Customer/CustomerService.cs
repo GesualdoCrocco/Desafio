@@ -55,7 +55,7 @@ namespace Service.Customer
         /// <returns>Object of Domain.Models.Customer</returns>
         public Domain.Models.Customer GetById(int id)
         {
-            return _desafioContext.Customers.FirstOrDefault(c => c.Id == id);
+            return  _desafioContext.Customers.FirstOrDefault(c => c.Id == id);
         }
 
         /// <summary>

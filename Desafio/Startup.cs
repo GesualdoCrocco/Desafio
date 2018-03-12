@@ -23,10 +23,10 @@ namespace Desafio
         {
             services.AddMvc();
             services.AddTransient<ICustomerService, CustomerService>();
-            //services.AddDbContext<DesafioContext>(options => options.UseInMemoryDatabase("DesafioDB"));
+            services.AddDbContext<DesafioContext>(options => options.UseInMemoryDatabase("DesafioDB"));
 
-            services.AddEntityFrameworkNpgsql().AddDbContext<DesafioContext>
-                (options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddEntityFrameworkNpgsql().AddDbContext<DesafioContext>
+            //    (options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
 
 
